@@ -1,4 +1,3 @@
-<?php include("../Controller/ConnexionController.php"); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,7 +9,7 @@
 <body>
     <div class="login-container">
         <div class="illustration">
-            <img src="../images/connexion_coach.png" alt="Illustration">
+            <img src="images/connexion_coach.png" alt="Illustration">
         </div>
         <div class="login-form">
             <h2>Bienvenue sur le Terrain</h2>

@@ -2,6 +2,7 @@
 session_start();
 require_once(__DIR__ . "/../Models/Database.php");
 require_once(__DIR__ . "/../Models/Utilisateur.php");
+include(__DIR__."/../vue/login.php");
 
 class ConnexionController {
     private $utilisateurModel;
@@ -23,7 +24,7 @@ class ConnexionController {
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['nom'] = $user['nom'];
 
-                    header("Location: ../index.php"); 
+                    header("Location: /Projet_coach/vue/page_principale.php");
                     exit();
                 } else {
                     return "Email ou mot de passe incorrect.";
@@ -35,17 +36,10 @@ class ConnexionController {
         return null;
     }
 }
-<div class="user-widget">
-  <?php if( isset($_SESSION['user_id']) && $_SESSION['user_id'] !== null ) : ?>
-    <a href="/logout.php">Se déconnecter</a>
-  <?php else : ?>
-    <a href="/login.php">Se connecter</a>
-  <?php endif; ?>
-</div>
 
 $controller = new ConnexionController();
 $error = $controller->login();
-
-
-
 ?>
+
+
+
