@@ -23,6 +23,10 @@
                     <input type="password" name="mdp" id="mdp" placeholder="Entrez votre mot de passe">
                 </div>
                 <button type="submit" name="Connexion">Connexion</button>
+                <div class="signup">
+    <p>Pas encore de compte ? <a href="Controller/InscriptionController.php">Inscrivez-vous ici</a></p>
+</div>
+
             </form>
         </div>
     </div>

@@ -21,12 +21,7 @@ CREATE TABLE Club (
     date_naissance DATE NOT NULL  -- Correction du type
 );
 
-CREATE TABLE Utilisateur (
-    idutilisateur INT PRIMARY KEY AUTO_INCREMENT, 
-    Nom VARCHAR(255) NOT NULL, 
-    Type VARCHAR(50) NOT NULL,   
-    Localisation VARCHAR(255) NOT NULL 
-);
+ 
 
 CREATE TABLE Exercice (
     idexercice INT PRIMARY KEY AUTO_INCREMENT,
@@ -61,11 +56,18 @@ CREATE TABLE Evaluation (
 );
 
 CREATE TABLE user (
-    iduser INT(11) NOT NULL AUTO_INCREMENT,
-    email VARCHAR(255) NOT NULL,
-    mdp VARCHAR(255) NOT NULL,
-    PRIMARY KEY (iduser)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+    password_changed_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+
+
 
 /************** GESTION DE ABONNEMENT ************/
 
@@ -75,9 +77,6 @@ CREATE TABLE abonnements (
     date_abonnement DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-/****** INSERTIONS CORRIGÉES ******/
-INSERT INTO user (email, mdp) VALUES ("a@gmail.com", "123");
-INSERT INTO user (email, mdp) VALUES ("b@gmail.com", "456");
 
 ------
 /* VIEW :
