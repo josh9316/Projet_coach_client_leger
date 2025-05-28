@@ -6,6 +6,7 @@ CREATE TABLE Coachs (
     idcoachs INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
     prenom VARCHAR(255) NOT NULL,
+    Sexe Varchar (10) NOT NULL,
     specialite VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     tel VARCHAR(20) NOT NULL,
@@ -31,15 +32,17 @@ CREATE TABLE Exercice (
 );
 
 CREATE TABLE Reservation (
-    idReservation INT PRIMARY KEY AUTO_INCREMENT,  
-    Utilisateur_ID INT NOT NULL,   
-    Coach_ID INT NOT NULL, 
-    Exercice_ID INT NOT NULL, 
+    idreservation INT PRIMARY KEY AUTO_INCREMENT,  
+    iduser INT NOT NULL,   
+    idcoachs INT NOT NULL, 
+    idexercice INT NOT NULL,
+    idclub INT NOT NULL, 
     Date DATE NOT NULL,    
     Statut VARCHAR(50) NOT NULL,  
-    FOREIGN KEY (Utilisateur_ID) REFERENCES Utilisateur(idutilisateur),
-    FOREIGN KEY (Exercice_ID) REFERENCES Exercice(idexercice),
-    FOREIGN KEY (Coach_ID) REFERENCES Coachs(idcoachs) 
+    FOREIGN KEY (idutilisateur) REFERENCES Utilisateur(idutilisateur),
+    FOREIGN KEY (idexercice) REFERENCES Exercice(idexercice),
+    FOREIGN KEY (idcoachs) REFERENCES Coachs(idcoachs),
+    FOREIGN KEY (idclub) REFERENCES Club(idclub) 
 );
 
 
@@ -56,17 +59,17 @@ CREATE TABLE Evaluation (
 );
 
 CREATE TABLE user (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    iduser INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
     prenom VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL
-    password_changed_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    
 );
 
-
+password_changed_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 
 
 /************** GESTION DE ABONNEMENT ************/
@@ -77,6 +80,9 @@ CREATE TABLE abonnements (
     date_abonnement DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+select specialite, count(Utilisateur_ID) from coachs, Evaluation
+where coachs.idcoachs = Evaluation.Coach_ID
+group by specialite;
 
 ------
 /* VIEW :

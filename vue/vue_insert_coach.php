@@ -46,6 +46,18 @@
                 <label for="tel" class="form-label">Téléphone</label>
                 <input type="tel" class="form-control" id="tel" name="tel" value="<?= ($leCoach != null) ? htmlspecialchars($leCoach['tel']) : '' ?>" required>
             </div>
+
+            <!-- 📌 Ajout du menu déroulant pour le sexe -->
+            <div class="form-group">
+                <label for="sexe" class="form-label">Sexe</label>
+                <select class="form-control" id="sexe" name="sexe" required>
+                    <option value="" disabled selected>Choisir le sexe</option>
+                    <option value="homme" <?= ($leCoach != null && $leCoach['sexe'] == 'homme') ? 'selected' : '' ?>>Homme</option>
+                    <option value="femme" <?= ($leCoach != null && $leCoach['sexe'] == 'femme') ? 'selected' : '' ?>>Femme</option>
+                </select>
+            </div>
+            <!-- 📌 Fin du menu déroulant -->
+
             <div class="d-flex justify-content-between">
                 <button type="reset" class="btn btn-secondary">Annuler</button>
                 <button type="submit" class="btn btn-custom" name="<?= ($leCoach != null) ? 'Modifier' : 'Valider' ?>">
@@ -56,5 +68,3 @@
         </form>
     </div>
 </div>
-
-

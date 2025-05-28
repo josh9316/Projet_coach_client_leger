@@ -23,7 +23,8 @@
                 <th>Spécialité</th>
                 <th>Email</th>
                 <th>Téléphone</th>
-                <th>Opérations</th>
+                <th>sexe</th>
+                <th>Opération</th>
             </tr>
         </thead>
         <tbody>
@@ -31,12 +32,13 @@
             if (isset($lesCoachs)) {
                 foreach ($lesCoachs as $unCoach) {
                     echo "<tr>";
-                    echo "<td>" . htmlspecialchars($unCoach['idcoach']) . "</td>";
+                    echo "<td>" . htmlspecialchars($unCoach['idcoachs']) . "</td>";
                     echo "<td>" . htmlspecialchars($unCoach['nom']) . "</td>";
                     echo "<td>" . htmlspecialchars($unCoach['prenom']) . "</td>";
                     echo "<td>" . htmlspecialchars($unCoach['specialite']) . "</td>";
                     echo "<td>" . htmlspecialchars($unCoach['email']) . "</td>";
                     echo "<td>" . htmlspecialchars($unCoach['tel']) . "</td>";
+                    echo "<td>" . htmlspecialchars($unCoach['sexe']) . "</td>";
                     echo "<td>";
                     echo "<a href='index.php?page=3&action=sup&idcoachs=" . htmlspecialchars($unCoach['idcoachs']) . "'><img src='images/supprimer.png' height='30' width='30' alt='Supprimer'></a>";
                     echo "<a href='index.php?page=3&action=edit&idcoachs=" . htmlspecialchars($unCoach['idcoachs']) . "'><img src='images/editer.png' height='30' width='30' alt='Modifier'></a>";

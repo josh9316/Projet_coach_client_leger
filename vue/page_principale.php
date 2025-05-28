@@ -86,6 +86,8 @@
             <a href="page_principale.php?page=4">Exercice</a>
             <a href="page_principale.php?page=5">Contact</a>
             <a href="deconnexion.php">Se déconnecter</a>
+            <a href="index.php?page=stats" class="btn btn-primary">Voir les statistiques</a>
+
         </div>
     </nav>
     

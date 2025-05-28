@@ -18,7 +18,7 @@ class ConnexionController {
 
             if (!empty($email) && !empty($mdp)) {
                 $user = $this->utilisateurModel->login($email, $mdp);
-
+                //var_dump($user);
                 if ($user) {
                     $_SESSION['user_id'] = $user['iduser'];  
                     $_SESSION['email'] = $user['email'];

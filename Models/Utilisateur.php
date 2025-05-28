@@ -12,7 +12,7 @@ class Utilisateur {
     // Méthode de connexion
     public function login($email, $mdp) {
         // Utilisation de la table "users" pour être cohérent avec le reste du code
-        $query = $this->pdo->prepare("SELECT * FROM users WHERE email = :email");
+        $query = $this->pdo->prepare("SELECT * FROM user WHERE email = :email");
         $query->execute([':email' => $email]);
         $user = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -21,7 +21,7 @@ class Utilisateur {
         }
 
         // Vérification du mot de passe haché
-        if (password_verify($mdp, $user['password'])) {
+        if ($mdp ==$user['password'] ) {//(password_verify($mdp, $user['password'])) {
             return $user; 
         }
 
