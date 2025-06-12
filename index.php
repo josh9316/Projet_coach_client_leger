@@ -21,7 +21,7 @@ switch ($page) {
         $statController->showStats();
         break;
     default:
-        echo "<h2>Bienvenue sur le site</h2>";
+       // echo "<h2>Bienvenue sur le site</h2>";
         break;
 }
 ?>
