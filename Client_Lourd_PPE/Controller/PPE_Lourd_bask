@@ -1,0 +1,46 @@
+package controleur;
+
+import vue.VueConnexion;
+import vue.VueGenerale;
+
+public class PPE_Lourd_bask {
+
+
+    private static VueConnexion uneVueConnexion;
+
+ 
+    private static VueGenerale uneVueGenerale;
+
+
+    private static Coach coachConnecte;
+
+
+    public static void setCoachConnecte(Coach unCoach) {
+    	coachConnecte = unCoach;
+    }
+
+
+    public static Coach getCoachConnecte() {
+        return coachConnecte;
+    }
+
+
+    public static void creerVueGenerale(boolean action) {
+        if (action) {
+            uneVueGenerale = new VueGenerale();
+            uneVueGenerale.setVisible(true);
+        } else {
+            uneVueGenerale.dispose();
+        }
+    }
+
+
+    public static void rendreVisibleVueConnexion(boolean action) {
+        uneVueConnexion.setVisible(action);
+    }
+
+
+    public static void main(String[] args) {
+        uneVueConnexion = new VueConnexion();
+    }
+}
